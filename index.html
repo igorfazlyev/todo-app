@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>To Do App</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>To Dos</h1>
+            <input type="text" id="filter" placeholder="filter todos">
+            <div id="hide-completed-div">
+                <label for="hide-completed">
+                    <input type="checkbox" name="hide-completed" id="hide-completed">
+                    Hide completed
+                </label>
+            </div>
+            
+        </header>
+       
+       
+        <div id="todos">
+
+        </div>
+        <div id="add-to-do">
+            <form action="" id="new-to-do-form">
+                <input type="text" placeholder="new to do" id="newToDo" name="newToDo">
+                <button>
+                    Add
+                </button>
+            </form>
+        </div>
+    </div>
+    <script src="./todo-functions.js"></script>
+    <script src="./todo-app.js"></script>
+</body>
+</html>
