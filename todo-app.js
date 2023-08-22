@@ -1,6 +1,7 @@
+'use strict'
 let todos = getSavedToDos();
 
-filters = {
+const filters = {
     searchText:'', 
     hideCompleted: false
 }
@@ -19,19 +20,22 @@ document.querySelector('#filter').addEventListener("input", (e)=>{
     renderToDos(todos, filters);
 })
 
-document.querySelector('#new-to-do-form').addEventListener("submit", function(e){
+document.querySelector('#new-to-do-form').addEventListener("submit", (e)=>{
     e.preventDefault();
     //console.log(e.target.elements.newToDo.value);
-    todos.push(
-        {
-            id: crypto.randomUUID(),
-            text:e.target.elements.newToDo.value,
-            completed: false
-        }  
-    );
-    renderToDos(todos, filters);
-    saveToDos(todos);
-    e.target.elements.newToDo.value = '';
+    let toDoText = e.target.elements.newToDo.value.trim();
+    if (toDoText.length > 0) {
+        todos.push(
+            {
+                id: crypto.randomUUID(),
+                text:toDoText,
+                completed: false
+            }  
+        );
+        renderToDos(todos, filters);
+        saveToDos(todos);
+        e.target.elements.newToDo.value = '';
+    }
 })
 
 document.querySelector('#hide-completed').addEventListener('change', (e)=>{
